@@ -1,0 +1,33 @@
+{
+  "name": "Lead Info",
+  "description": "Find leads and their email id through linkedin.",
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "all_frames": false,
+    "js": [
+      "content.js"
+    ],
+    "matches": [
+      "*://*.linkedin.com/profile/*",
+      "*://*.linkedin.com/pub/*",
+      "*://*.linkedin.com/in/*"
+    ],
+    "run_at": "document_end"
+  }],
+  "manifest_version": 2,
+  "permissions": [
+    "clipboardWrite",
+    "webRequest",
+    "storage"
+  ],
+  "version": "0.0.1"
+}

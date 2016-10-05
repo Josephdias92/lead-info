@@ -70,6 +70,20 @@ function getWebsiteName(websites) {
   return website;
 }
 
+function getPosition(positions) {
+  var position = '';
+  if (positions[0]) {
+    var currentPos = positions[0];
+    if (currentPos.children[0]) {
+      position = currentPos.children[0].innerHTML;
+    }
+  } else {
+    position = 'No Position Found';
+  }
+  return position;
+}
+
+
 function getCity() {
   var city = '';
   var cityHtml = document.getElementsByClassName('locality');
@@ -84,6 +98,7 @@ function getCity() {
 function getData(data) {
   var city = getCity();
   var website = '';
+  var positions;
   var fullName = document.getElementsByClassName('full-name');
   if (fullName.length) {
     var fullname = fullName[0].innerText;
@@ -92,8 +107,10 @@ function getData(data) {
     if (workProfile) {
       var listOfWork = workProfile.querySelectorAll('strong');
       var website = getWebsiteName(listOfWork);
+      positions = workProfile.querySelectorAll('h4');
     }
-    data = createObject(splitName, website, city);
+    var position = getPosition(positions);
+    data = createObject(splitName, website, city, position);
   }
   return data;
 }
@@ -102,7 +119,8 @@ chrome.runtime.onMessage.addListener(function(msg, sender, response) {
     firstname: '',
     surname: '',
     website: '',
-    city: ''
+    city: '',
+    position: 'No Position Found'
   };
 
   if ((msg.from === 'popup') && (msg.action === 'info')) {
@@ -118,10 +136,11 @@ chrome.runtime.onMessage.addListener(function(msg, sender, response) {
 
 
 
-function createObject(splitedName, website, city) {
+function createObject(splitedName, website, city, position) {
   var data = {
     website: website,
-    city: city
+    city: city,
+    position: position
   };
   if (splitedName.length > 2) {
     data.firstname = splitedName[0] + " " + splitedName[1];

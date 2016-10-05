@@ -14,12 +14,15 @@
         <div class="panel-heading"><h5 class="text-center">Lead Info</h5></div>
         <div class="panel-body">
           <div class="popup-container">
-              <form>
+              <form id="leadFinderForm">
                   <div class="form-group">
                       <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First Name">
                   </div>
                   <div class="form-group">
                       <input type="text" name class="form-control" id="surname" placeholder="Surname">
+                  </div>
+                  <div class="form-group">
+                    <h4><span id="position"></span></h4>
                   </div>
                   <div class="form-group">
                       <input type="text" class="form-control" id="website" placeholder="Domain(example.com)">
@@ -30,6 +33,11 @@
 
                   <button type="button" id="getInfo" class="btn btn-primary btn-lg btn-block">Get Info</button>
               </form>
+              <div id="displayLeadInfo" style="display:none">
+                <div class="form-group">
+                    <input type="text" name="email" class="form-control" id="email" placeholder="Email">
+                </div>
+              </div>
           </div>
         </div>
       </div>

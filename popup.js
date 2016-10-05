@@ -3,6 +3,7 @@ function setData(data) {
   document.getElementById('surname').value = data.surname;
   document.getElementById('website').value = data.website;
   document.getElementById('city').value = data.city;
+  document.getElementById('position').innerText = data.position;
 }
 
 window.addEventListener('DOMContentLoaded', function() {

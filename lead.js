@@ -1,6 +1,6 @@
 (function($) {
   $('#getInfo').on('click', function() {
-    var serverURL = 'http://10.10.0.98:8888/app/index.php/DB/find_email';
+    var serverURL = 'http://139.59.23.63/index.php/DB/find_email';
     var firstname = $('#firstname').val();
     var surname = $('#surname').val();
     var website = $('#website').val();

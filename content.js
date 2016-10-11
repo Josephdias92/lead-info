@@ -67,6 +67,7 @@ function getWebsiteName(websites) {
       website = obj.website;
     }
   }
+  website = website || '';
   return website;
 }
 

@@ -4,8 +4,7 @@
     var firstname = $('#firstname').val();
     var surname = $('#surname').val();
     var website = $('#website').val();
-    var position = $('#position').innerText;
-
+    var position = $('#position').text();
     var city = $('#city').val();
     $.ajax({
       url: serverURL,

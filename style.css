@@ -19,3 +19,13 @@ h5{
   font-size: 20px;
     font-weight: bold;
 }
+.popup-container{
+  position: relative;
+}
+#loader{
+  left: 50%;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

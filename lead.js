@@ -1,5 +1,7 @@
 (function($) {
   $('#getInfo').on('click', function() {
+    var loader = $("#loader");
+    loader.show();
     var serverURL = 'http://139.59.23.63/index.php/Prospects/find_email';
     var firstname = $('#firstname').val();
     var surname = $('#surname').val();
@@ -18,13 +20,13 @@
       }
     }).done(function(d) {
       if (d) {
-        var form = document.getElementById('leadFinderForm');
-        var displayLeadInfo = document.getElementById(
-          'displayLeadInfo');
+        var form = $('#leadFinderForm');
+        var displayLeadInfo = $('#displayLeadInfo');
         if (form && displayLeadInfo) {
-          form.style.display = 'none';
-          displayLeadInfo.style.display = 'block';
-          document.getElementById('email').value = d.email;
+          loader.hide();
+          form.hide();
+          displayLeadInfo.show();
+          $('#email').val(d.email);
         }
       }
     })

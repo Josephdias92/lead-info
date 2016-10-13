@@ -1,9 +1,10 @@
 function setData(data) {
-  document.getElementById('firstname').value = data.firstname;
-  document.getElementById('surname').value = data.surname;
-  document.getElementById('website').value = data.website;
-  document.getElementById('city').value = data.city;
-  document.getElementById('position').value = data.position;
+  $('#loader').hide();
+  $('#firstname').val(data.firstname);
+  $('#surname').val(data.surname);
+  $('#website').val(data.website);
+  $('#city').val(data.city);
+  $('#position').val(data.position);
 }
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -11,6 +12,7 @@ window.addEventListener('DOMContentLoaded', function() {
     active: true,
     currentWindow: true
   }, function(tabs) {
+    console.log('loader');
     chrome.tabs.sendMessage(
       tabs[0].id, {
         from: 'popup',
